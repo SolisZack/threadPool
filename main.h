@@ -2,8 +2,8 @@
 // Created by zack solis on 2022/1/29.
 //
 
-#ifndef THREADPOOL_MAIN_H
-#define THREADPOOL_MAIN_H
+#ifndef THREADPOOL_TEST_H
+#define THREADPOOL_TEST_H
 
 #include <random>
 #include <thread>
@@ -45,4 +45,4 @@ int multiply_return(const int a, const int b)
     return res;
 }
 
-#endif //THREADPOOL_MAIN_H
+#endif //THREADPOOL_TEST_H
