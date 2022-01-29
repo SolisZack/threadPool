@@ -1,0 +1,44 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/zacksolis/CLionProjects/ThreadPool/funcQueue.h
+queue
+-
+mutex
+-
+
+/Users/zacksolis/CLionProjects/ThreadPool/test.cpp
+test.h
+/Users/zacksolis/CLionProjects/ThreadPool/test.h
+threadPool.h
+/Users/zacksolis/CLionProjects/ThreadPool/threadPool.h
+iostream
+-
+memory
+-
+
+/Users/zacksolis/CLionProjects/ThreadPool/test.h
+random
+-
+thread
+-
+iostream
+-
+
+/Users/zacksolis/CLionProjects/ThreadPool/threadPool.h
+funcQueue.h
+/Users/zacksolis/CLionProjects/ThreadPool/funcQueue.h
+future
+-
+vector
+-
+thread
+-
+mutex
+-
+
