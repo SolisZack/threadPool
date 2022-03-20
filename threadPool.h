@@ -78,11 +78,12 @@ public:
     template<typename F, typename... Args>
     // "auto 函数(参数)->类型"的形式学名叫"函数返回类型后置"，auto作为占位符，用于自动推导函数的返回值类型
     // 函数的返回值是，储存了f(args...)运行结果的数据类型的future，可以通过futurexxx.get()异步获取该值
+    // 思路如果自己忘了可以参考main.cpp里的myTest函数
     auto submitFunc(F&& f, Args&&... args)-> std::future<decltype(f(args...))> {
         // 将传入的函数和参数利用std::bind 打包成一个xxx()形式的函数
         // 注意变长参数的书写形式
         std::function<decltype(f(args...))()> func = std::bind(std::forward<F>(f), std::forward<Args>(args)...);
-        // 将上述函数打包成期物，同时
+        // 将上述函数打包成期物，同时利用智能指针方便后序打包成void()形式
         auto ptr_func = std::make_shared<std::packaged_task<decltype(f(args...))()>>(func);
         // 打包成void()形式，这样就可以传入到funcQueue中了
         std::function<void()> wrapped_func = [ptr_func](){(*ptr_func)();};
